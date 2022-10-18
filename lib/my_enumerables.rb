@@ -30,5 +30,9 @@ class Array
     out_put
   end
 
+  def my_all?(&a_block)
+    each { |e| return false unless a_block.call(e) }
+    true
+  end
 
 end
