@@ -35,4 +35,9 @@ class Array
     true
   end
 
+  def my_any?(&a_block)
+    each { |e| return true if a_block.call(e) }
+    false
+  end
+
 end
