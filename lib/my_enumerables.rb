@@ -53,5 +53,15 @@ class Array
     counter
   end
 
+  def my_map(&a_block)
+    result = []
+    each {|e| result.push(a_block.call(e)) }
+    result
+  end
+
+  def my_inject(a_start = 0, &a_block)
+    each { |e| a_start = a_block.call(a_start, e) }
+    a_start
+  end
 
 end
