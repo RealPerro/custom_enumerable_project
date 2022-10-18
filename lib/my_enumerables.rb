@@ -44,4 +44,14 @@ class Array
     each { |e| return false if a_block.call(e) }
     true
   end
+
+  def my_count(&a_block)
+    return size unless block_given?
+
+    counter = 0
+    each { |e| counter += 1 if a_block.call(e) }
+    counter
+  end
+
+
 end
