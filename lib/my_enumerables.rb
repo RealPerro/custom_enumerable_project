@@ -10,7 +10,25 @@ class Array
   # Define my_each here
   def my_each
     for i in self do
-      yield (i)
+      yield i
     end
   end
+
+  def my_each_with_index
+    i = 0
+    for e in self do
+      yield [e, i]
+      i +=1
+    end
+  end
+
+  def my_select(&a_block)
+    return unless block_given?
+
+    out_put = []
+    each { |e| out_put.push(e) if a_block.call(e) }
+    out_put
+  end
+
+
 end
