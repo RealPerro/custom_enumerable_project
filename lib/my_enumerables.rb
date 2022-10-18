@@ -40,4 +40,8 @@ class Array
     false
   end
 
+  def my_none?(&a_block)
+    each { |e| return false if a_block.call(e) }
+    true
+  end
 end
